@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: serverless-streaming-job
+    volumes:
+      - ./src:/usr/src/app
+      - ./data.jsonl:/usr/src/data.jsonl
+      - ./package.json:/usr/src/package.json
+      - ./keys/pubsub_key:/usr/src/app/pubsub_key
+    env_file: 
+      - ./.env
+    ports:
+      - 7001:8080

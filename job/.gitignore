@@ -1,0 +1,7 @@
+./src/
+package-lock.json
+*_key
+.env
+./node_modules/
+./data.jsonl
+data.jsonl

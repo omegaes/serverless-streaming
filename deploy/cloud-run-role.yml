@@ -1,0 +1,37 @@
+title: Role Cloud Run
+description: Let cloud run serviceAccount able to do certain actions
+stage: GA
+includedPermissions:
+- logging.logEntries.create
+- logging.logEntries.list
+- bigquery.datasets.create
+- bigquery.datasets.get
+- bigquery.datasets.getIamPolicy
+- bigquery.datasets.updateTag
+- bigquery.jobs.create
+- bigquery.models.create
+- bigquery.models.delete
+- bigquery.models.export
+- bigquery.models.getData
+- bigquery.models.getMetadata
+- bigquery.models.list
+- bigquery.models.updateData
+- bigquery.models.updateMetadata
+- bigquery.models.updateTag
+- bigquery.routines.create
+- bigquery.routines.delete
+- bigquery.routines.get
+- bigquery.routines.list
+- bigquery.routines.update
+- bigquery.tables.create
+- bigquery.tables.delete
+- bigquery.tables.export
+- bigquery.tables.get
+- bigquery.tables.getData
+- bigquery.tables.getIamPolicy
+- bigquery.tables.list
+- bigquery.tables.update
+- bigquery.tables.updateData
+- bigquery.tables.updateTag
+- pubsub.subscriptions.consume
+- resourcemanager.projects.get

@@ -1,0 +1,15 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: serverless-streaming
+    ports:
+      - 7000:8080
+    volumes:
+      - ./src:/usr/src/app
+      - ./package.json:/usr/src/package.json
+      #- ./keys/stackdriver_key:/usr/src/app/stackdriver_key
+    env_file: 
+      - ./.env

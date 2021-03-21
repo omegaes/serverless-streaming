@@ -1,0 +1,62 @@
+{
+    "combiner": "OR",
+    "conditions": [
+      {
+        "conditionThreshold": {
+          "aggregations": [
+            {
+              "alignmentPeriod": "300s",
+              "perSeriesAligner": "ALIGN_MEAN"
+            }
+          ],
+          "comparison": "COMPARISON_GT",
+          "duration": "60s",
+          "filter": "metric.type=\"pubsub.googleapis.com/subscription/num_undelivered_messages\"\nresource.type=\"pubsub_subscription\" resource.label.\"subscription_id\"=\"events_subscription\"",
+          "thresholdValue": 1,
+          "trigger": {
+            "count": 1
+          }
+        },
+        "displayName": "run when there are low amount of messages"
+
+      },
+      {
+        "conditionThreshold": {
+          "aggregations": [
+            {
+              "alignmentPeriod": "300s",
+              "perSeriesAligner": "ALIGN_MEAN"
+            }
+          ],
+          "comparison": "COMPARISON_GT",
+          "duration": "180s",
+          "filter": "metric.type=\"pubsub.googleapis.com/subscription/num_undelivered_messages\"\nresource.type=\"pubsub_subscription\" resource.label.\"subscription_id\"=\"events_subscription\"",
+          "thresholdValue": 10000,
+          "trigger": {
+            "count": 3
+          }
+        },
+        "displayName": "run when there are huge amount of messages"
+      },
+      {
+        "conditionThreshold": {
+          "aggregations": [
+            {
+              "alignmentPeriod": "300s",
+              "perSeriesAligner": "ALIGN_MEAN"
+            }
+          ],
+          "comparison": "COMPARISON_GT",
+          "duration": "120s",
+          "filter": "metric.type=\"pubsub.googleapis.com/subscription/num_undelivered_messages\"\nresource.type=\"pubsub_subscription\" resource.label.\"subscription_id\"=\"events_subscription\"",
+          "thresholdValue": 1000,
+          "trigger": {
+            "count": 2
+          }
+        },
+        "displayName": "run when there are mid amount of messages"
+      }
+    ],
+    "displayName": "Run ETL jobs policy",
+    "enabled": true
+  }
